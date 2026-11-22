@@ -1,0 +1,173 @@
+{
+  "run_timestamp": "2026-11-23T01:39:19+0700",
+  "python_version": "3.14.0",
+  "package_versions": {
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "commit_hash": "9dd1070adeaf2b18367c8f71284eb73a04130cad",
+  "SEED": 42,
+  "N_SPLITS": 5,
+  "INNER_SPLITS": 3,
+  "N_REPEATS": 10,
+  "FEATURE_COLUMNS": [
+    "Choose your gender",
+    "Age",
+    "What is your course?",
+    "Your current year of Study",
+    "What is your CGPA?",
+    "Marital status"
+  ],
+  "TARGET_COLUMN": "Do you have Depression?",
+  "EXCLUDED_COLUMNS": [
+    "Timestamp",
+    "Do you have Anxiety?",
+    "Do you have Panic attack?",
+    "Did you seek any specialist for a treatment?"
+  ],
+  "data_shape": {
+    "n_rows": 101,
+    "n_features": 6
+  },
+  "label_distribution": {
+    "0": 66,
+    "1": 35
+  },
+  "model_params_E0": {
+    "Dummy": {
+      "constant": null,
+      "random_state": null,
+      "strategy": "most_frequent"
+    },
+    "LogisticRegression": {
+      "C": 1.0,
+      "class_weight": null,
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 1000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": 42,
+      "solver": "lbfgs",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "DecisionTree": {
+      "ccp_alpha": 0.0,
+      "class_weight": null,
+      "criterion": "gini",
+      "max_depth": 3,
+      "max_features": null,
+      "max_leaf_nodes": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 3,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "random_state": 42,
+      "splitter": "best"
+    },
+    "RandomForest": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": null,
+      "criterion": "gini",
+      "max_depth": 3,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 3,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 300,
+      "n_jobs": 1,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "SVM": {
+      "cv": null,
+      "ensemble": false,
+      "estimator__C": 1.0,
+      "estimator__break_ties": false,
+      "estimator__cache_size": 200,
+      "estimator__class_weight": null,
+      "estimator__coef0": 0.0,
+      "estimator__decision_function_shape": "ovr",
+      "estimator__degree": 3,
+      "estimator__gamma": "scale",
+      "estimator__kernel": "rbf",
+      "estimator__max_iter": -1,
+      "estimator__probability": "deprecated",
+      "estimator__random_state": null,
+      "estimator__shrinking": true,
+      "estimator__tol": 0.001,
+      "estimator__verbose": false,
+      "estimator": "SVC()",
+      "method": "sigmoid",
+      "n_jobs": null
+    }
+  },
+  "PARAM_GRIDS_E1": {
+    "LogisticRegression": {
+      "clf__C": [
+        0.1,
+        1,
+        10
+      ]
+    },
+    "DecisionTree": {
+      "clf__max_depth": [
+        2,
+        3,
+        4
+      ],
+      "clf__min_samples_leaf": [
+        1,
+        3,
+        5
+      ]
+    },
+    "RandomForest": {
+      "clf__max_depth": [
+        3,
+        null
+      ],
+      "clf__min_samples_leaf": [
+        1,
+        3
+      ]
+    },
+    "SVM": {
+      "clf__estimator__C": [
+        0.1,
+        1,
+        10
+      ]
+    }
+  },
+  "experiments_run": [
+    "E0_main",
+    "S1a_drop_course",
+    "S1b_course_min_freq5",
+    "S2_class_weight_balanced",
+    "E1_nested",
+    "E2_repeated",
+    "S3_plus_anxiety_panic"
+  ],
+  "metric_definitions": {
+    "positive_label": 1,
+    "zero_division": 0,
+    "ddof": 1,
+    "roc_auc": "from decision scores (predict_proba or decision_function)",
+    "pr_auc": "average_precision_score"
+  }
+}
